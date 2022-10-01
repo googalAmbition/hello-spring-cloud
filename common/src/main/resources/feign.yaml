@@ -1,0 +1,9 @@
+# feign
+feign.client.config.default.connectTimeout: 700
+feign.client.config.default.readTimeout: 2000
+#
+#### hystrix
+#hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds=2500
+##客户端个性化配置
+#hystrix.command.RecurringTriggerClientService#apply(String).execution.isolation.thread.timeoutInMilliseconds=20000
+#
