@@ -1,0 +1,14 @@
+dubbo:
+  application:
+    name: dubbo-client
+  registry:
+    address: zookeeper://127.0.0.1:2181
+
+spring:
+  application:
+    name: dubbo-client
+  cloud:
+    zookeeper:
+      connect-string: 127.0.0.1:2181
+server:
+  port: 8001

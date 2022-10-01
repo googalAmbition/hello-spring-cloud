@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
  */
 
 @Component
-@FeignClient(name = "zk-server", contextId = "feignServer",path = "/")
+@FeignClient(name = "zk-server", contextId = "feignServer", path = "/", fallback = FallbackServiceImpl.class)
 public interface FeignService {
 
     @GetMapping("/feign/{name}")

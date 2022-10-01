@@ -1,0 +1,37 @@
+server:
+  port: 9099
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      globalcors:
+        # gateway \u8DE8\u57DF\u8BBE\u7F6E
+        cors-configurations:
+          '[/**]':
+#            allowedOrigins: "*"
+            allowedHeaders: "*"
+            allowCredentials: true
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - OPTIONS
+      discovery:
+        locator:
+          ####\u5F00\u542F\u4EE5\u670D\u52A1id\u53BB\u6CE8\u518C\u4E2D\u5FC3\u4E0A\u83B7\u53D6\u8F6C\u53D1\u5730\u5740
+          enabled: true
+      ###\u8DEF\u7531\u7B56\u7565
+      routes:
+        ## \u8DEF\u7531\u7B56\u7565id
+        - id:
+          ## \u57FA\u4E8Elb\u8D1F\u8F7D\u5747\u8861\u5F62\u5F0F\u8F6C\u53D1\uFF08\u901A\u8FC7\u6CE8\u518C\u4E2D\u5FC3\u670D\u52A1\u540D\u79F0\uFF0C\u83B7\u53D6\u771F\u5B9E\u8BBF\u95EE\u5730\u5740\uFF09
+          uri: lb://zk-server
+          ###\u5339\u914D\u89C4\u5219
+          predicates:
+            - Path=/zk-server/**
+          filters:
+          # \u53BB\u9664\u7684\u8DEF\u5F84\u524D\u7F00\u7684\u4E2A\u6570(strip)
+            - StripPrefix=1
+    zookeeper:
+      connect-string: 127.0.0.1:2181

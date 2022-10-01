@@ -1,0 +1,15 @@
+
+spring:
+  cloud:
+    zookeeper:
+      connect-string: 127.0.0.1:2181
+  application:
+    name: zk-client-sleuth
+  zipkin:
+    base-url: http://127.0.0.1:9411
+  sleuth:
+    sampler:
+      #采样率值介于 0 到 1 之间，1 则表示全部采集
+      probability: 1
+server:
+  port: 8082

@@ -1,0 +1,23 @@
+
+spring:
+  cloud:
+    zookeeper:
+      connect-string: 127.0.0.1:2181
+  application:
+    name: zk-client-hystrix
+server:
+  port: 9002
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+feign:
+  circuitbreaker:
+    enabled: true
+#hystrix:
+#  dashboard:
+#    proxy-stream-allow-list: '*'

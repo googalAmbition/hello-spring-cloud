@@ -1,0 +1,21 @@
+dubbo:
+  application:
+    name: dubbo-server
+  protocol:
+    name: dubbo
+    port: 20880
+  provider:
+    timeout: 1000
+  monitor:
+    protocol: registry
+  registry:
+    address: zookeeper://127.0.0.1:2181
+
+spring:
+  application:
+    name: dubbo-server-ap
+  cloud:
+    zookeeper:
+      connect-string: 127.0.0.1:2181
+server:
+  port: 8000

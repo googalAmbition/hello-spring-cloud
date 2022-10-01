@@ -1,0 +1,12 @@
+
+spring:
+  cloud:
+    zookeeper:
+      connect-string: 127.0.0.1:2181
+  application:
+    name: hytrix-dashboard
+server:
+  port: 9090
+hystrix:
+  dashboard:
+    proxy-stream-allow-list: '*'
