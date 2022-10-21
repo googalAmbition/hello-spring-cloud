@@ -1,6 +1,6 @@
 spring:
   application:
-    name: tcoding-cliient
+    name: tcoding-client
   cloud:
     consul:
       host: 127.0.0.1
